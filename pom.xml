@@ -6,7 +6,12 @@
 
     <groupId>com.learn</groupId>
     <artifactId>SSM</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-
-
+    <modules>
+        <module>SSMMain</module>
+        <module>MpGenerator</module>
+        <module>User</module>
+        <module>Public</module>
+    </modules>
 </project>
