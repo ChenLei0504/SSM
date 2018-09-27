@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Data
 @Component
 @Configuration
-@ConfigurationProperties(prefix = "adc.da.ftp")
+@ConfigurationProperties(prefix = "ftp")
 public class FtpClientProperties {
 
     private String ip;
