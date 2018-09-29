@@ -12,6 +12,5 @@
         <module>SSMMain</module>
         <module>MpGenerator</module>
         <module>User</module>
-        <module>Public</module>
     </modules>
 </project>
