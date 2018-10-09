@@ -1,7 +1,11 @@
-package com.learn.user.controller;
+package com.learn.controller;
 
+
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.learn.entity.User;
-import com.learn.user.dao.UserMapper;
+import com.learn.service.IUserService;
+import com.learn.service.impl.UserServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,40 +13,42 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 /**
- * //TODO 添加类/接口功能描述
+ * <p>
+ *  前端控制器
+ * </p>
  *
- * @author 陈雷
- * @date 2018-09-13
+ * @author jobob
+ * @since 2018-10-08
  */
-@Api(value = "UserController", description = "用户登录登出接口")
-@RequestMapping("/sys/user")
 @RestController
+@RequestMapping("/User1/user")
+@Api(description = "ces")
 public class UserController {
 
     @Autowired
-    UserMapper userMapper;
+    UserServiceImpl userService;
 
     @ApiOperation(value = "mapper获取所有", notes = "用户所有")
     @GetMapping("/getList")
     public List<User> getUserList() {
-        return userMapper.getUserList();
+        return userService.getUserList();
     }
 
     @ApiOperation(value = "MybatisPlus获取所有", notes = "用户所有")
     @GetMapping("/getList1")
     public List<User> getUserList1() {
-        return userMapper.selectList(null);
+        return userService.list(null);
     }
 
     @ApiOperation(value = "添加")
     @PostMapping("")
-    public int add(@RequestBody User user) {
-        return userMapper.insert(user);
+    public boolean add(@RequestBody User user) {
+        return userService.save(user);
     }
-
 }

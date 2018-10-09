@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--这里的namespace必须和是对应的mapper.java的地址-->
-<mapper namespace="com.learn.user.dao.UserMapper" >
+<mapper namespace="com.learn.mapper.UserMapper" >
 
-    <resultMap id="userMap" type="com.learn.entity.User">
-        <result column="id" property="id"></result>
-        <result property="userName" column="userName"></result>
-        <result column="password" property="userPassword"></result>
-    </resultMap>
 
-    <select id="getUserList" resultMap="userMap">
+    <select id="getUserList" resultType="com.learn.entity.User">
         select * from user;
     </select>
 </mapper>
